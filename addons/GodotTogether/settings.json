@@ -35,7 +35,7 @@
 		"sanitize_tool_scripts": true
 	},
 	"seen": {
-		"disclaimer": false
+		"disclaimer": true
 	},
 	"server": {
 		"allow_external_connections": true,
@@ -70,5 +70,5 @@
 		"last_check": 1794277687.616,
 		"latest_version": "1.1-alpha"
 	},
-	"username": "Cool person"
+	"username": "CallM3Ant"
 }

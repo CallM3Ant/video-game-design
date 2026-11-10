@@ -1,4 +1,4 @@
-
+# AI SCRIPT
 extends Camera3D
 
 var mouse_sensitivity := 0.002

@@ -40,19 +40,27 @@ glow_intensity = 0.45
 glow_bloom = 0.08
 glow_hdr_threshold = 1.2
 fog_enabled = true
-fog_light_color = Color(0.45882353, 0.41960785, 0.52156866, 1)
+fog_mode = 1
+fog_light_color = Color(0.20392157, 0.21176471, 0.3019608, 1)
+fog_light_energy = 0.85
 fog_sun_scatter = 0.05
-fog_density = 0.0045
-fog_aerial_perspective = 0.35
+fog_density = 1.0
+fog_aerial_perspective = 0.4
 fog_sky_affect = 0.05
+fog_depth_curve = 0.57434744
+fog_depth_begin = 750.0
+fog_depth_end = 1700.0
 volumetric_fog_density = 0.0015
 volumetric_fog_albedo = Color(0.45882353, 0.41960785, 0.52156866, 1)
 volumetric_fog_sky_affect = 0.05
 metadata/_yhde_id = "fc9daafd-ecb0-40fb-9957-294ec8a2427c"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_surk7"]
+
 [node name="Main" type="Node3D" unique_id=990857363]
 script = ExtResource("1_surk7")
 viewer_path = NodePath("Camera3D")
+world_environment_path = NodePath("WorldEnvironment")
 metadata/_yhde_id = "e011d397-4ce0-5d5e-a9b3-38e4c61ec0e4"
 
 [node name="TerrainManager" type="Node3D" parent="." unique_id=640518046]
@@ -72,7 +80,7 @@ metadata/_yhde_id = "74bff74d-7fb2-40eb-9377-c6880cddea1a"
 transform = Transform3D(0.7071068, -0.26488686, 0.655618, 0, 0.92718387, 0.3746066, -0.7071068, -0.26488686, 0.655618, -43.14112, 85.75547, 67.13891)
 fov = 60.0
 near = 0.01
-far = 3000.0
+far = 5000.0
 script = ExtResource("2_yd2fl")
 metadata/_yhde_id = "67e5e5f6-1634-43eb-99c2-e068d252e359"
 
@@ -93,5 +101,6 @@ metadata/_yhde_id = "ce9fdbef-e092-4f0d-ac7b-64a1c3c528cd"
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1606032548]
 transform = Transform3D(0.70710677, 0.26488686, -0.655618, 0, 0.92718387, 0.3746066, 0.70710677, -0.26488686, 0.655618, 35.144924, 109.38195, -2162.104)
+material_override = SubResource("StandardMaterial3D_surk7")
 size = Vector3(27.667969, 189.6582, 222.91397)
 metadata/_yhde_id = "e13f818b-855e-44ba-a0c2-8ff0934ba33b"

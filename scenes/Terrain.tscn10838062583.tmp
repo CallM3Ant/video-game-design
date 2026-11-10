@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://b6j62lqy2nche"]
+
+[ext_resource type="Script" uid="uid://c4fdepg1p50vo" path="res://scripts/TChunk.gd" id="1_3iduy"]
+[ext_resource type="Script" uid="uid://64rdwpehxw5d" path="res://scripts/ChunkManger.gd" id="1_surk7"]
+[ext_resource type="Script" uid="uid://djhf2joso4ofc" path="res://scripts/silly.gd" id="2_yd2fl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_88a1e"]
+sky_top_color = Color(0.03137255, 0.05882353, 0.14117648, 1)
+sky_horizon_color = Color(0.20392157, 0.21176471, 0.3019608, 1)
+sky_curve = 0.45
+sky_energy_multiplier = 0.85
+sky_cover_modulate = Color(0.06666667, 0.07450981, 0.12941177, 1)
+ground_bottom_color = Color(0.06666667, 0.07450981, 0.12941177, 1)
+ground_horizon_color = Color(0.20392157, 0.21176471, 0.3019608, 1)
+ground_curve = 0.45
+ground_energy_multiplier = 0.85
+sun_angle_max = 12.0
+sun_curve = 0.033796642
+metadata/_yhde_id = "46c0d6ed-497d-4c4d-b77c-33497349d0c2"
+
+[sub_resource type="Sky" id="Sky_surk7"]
+sky_material = SubResource("ProceduralSkyMaterial_88a1e")
+metadata/_yhde_id = "96c9a013-765a-46d0-b72a-372a64c2e77f"
+
+[sub_resource type="Environment" id="Environment_h45xw"]
+background_mode = 2
+sky = SubResource("Sky_surk7")
+ambient_light_source = 2
+ambient_light_color = Color(0.23921569, 0.27058825, 0.41960785, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.55
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.2
+ssao_intensity = 1.4
+ssao_power = 1.3
+ssao_sharpness = 1.0
+glow_enabled = true
+glow_intensity = 0.45
+glow_bloom = 0.08
+glow_hdr_threshold = 1.2
+fog_enabled = true
+fog_light_color = Color(0.45882353, 0.41960785, 0.52156866, 1)
+fog_sun_scatter = 0.05
+fog_density = 0.0045
+fog_aerial_perspective = 0.35
+fog_sky_affect = 0.05
+volumetric_fog_density = 0.0015
+volumetric_fog_albedo = Color(0.45882353, 0.41960785, 0.52156866, 1)
+volumetric_fog_sky_affect = 0.05
+metadata/_yhde_id = "fc9daafd-ecb0-40fb-9957-294ec8a2427c"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_surk7"]
+
+[node name="Main" type="Node3D" unique_id=990857363]
+script = ExtResource("1_surk7")
+viewer_path = NodePath("Camera3D")
+metadata/_yhde_id = "e011d397-4ce0-5d5e-a9b3-38e4c61ec0e4"
+
+[node name="TerrainManager" type="Node3D" parent="." unique_id=640518046]
+script = ExtResource("1_3iduy")
+metadata/_yhde_id = "a6391830-cd08-410f-8819-5ab7a010feec"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1409150292]
+environment = SubResource("Environment_h45xw")
+metadata/_yhde_id = "076001af-14a6-4390-b5d9-829fa21f1072"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1227614379]
+transform = Transform3D(0.70710677, 0.26488686, -0.655618, 0, 0.92718387, 0.3746066, 0.70710677, -0.26488686, 0.655618, -46.793407, 65.499756, 40.661224)
+size = Vector3(5.6123047, 2.9833984, 2.6131592)
+metadata/_yhde_id = "74bff74d-7fb2-40eb-9377-c6880cddea1a"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1855858239]
+transform = Transform3D(0.7071068, -0.26488686, 0.655618, 0, 0.92718387, 0.3746066, -0.7071068, -0.26488686, 0.655618, -43.14112, 85.75547, 67.13891)
+fov = 60.0
+near = 0.01
+far = 3000.0
+script = ExtResource("2_yd2fl")
+metadata/_yhde_id = "67e5e5f6-1634-43eb-99c2-e068d252e359"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=945929194]
+transform = Transform3D(0.81915194, -0.4055798, 0.40557978, 0, 0.70710677, 0.7071067, -0.5735764, -0.579228, 0.5792279, 42, 30, 42)
+light_color = Color(1, 0.9411765, 0.8745098, 1)
+light_energy = 1.2
+light_angular_distance = 0.2
+shadow_enabled = true
+shadow_normal_bias = 4.02
+shadow_blur = 2.818
+directional_shadow_split_2 = 0.25
+directional_shadow_split_3 = 0.55
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.82
+directional_shadow_max_distance = 1000.0
+metadata/_yhde_id = "ce9fdbef-e092-4f0d-ac7b-64a1c3c528cd"
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1606032548]
+transform = Transform3D(0.70710677, 0.26488686, -0.655618, 0, 0.92718387, 0.3746066, 0.70710677, -0.26488686, 0.655618, 35.144924, 109.38195, -2162.104)
+material_override = SubResource("StandardMaterial3D_surk7")
+size = Vector3(27.667969, 189.6582, 222.91397)
+metadata/_yhde_id = "e13f818b-855e-44ba-a0c2-8ff0934ba33b"
