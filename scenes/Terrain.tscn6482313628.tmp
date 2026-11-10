@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b6j62lqy2nche"]
+
+[ext_resource type="Script" uid="uid://c4fdepg1p50vo" path="res://scripts/TChunk.gd" id="1_3iduy"]
+[ext_resource type="Script" uid="uid://64rdwpehxw5d" path="res://scripts/ChunkManger.gd" id="1_surk7"]
+[ext_resource type="Script" uid="uid://djhf2joso4ofc" path="res://scripts/silly.gd" id="2_yd2fl"]
+
+[sub_resource type="Environment" id="Environment_h45xw"]
+background_energy_multiplier = 0.68
+metadata/_yhde_id = "482afba1-b83b-42b6-a5b7-f1bd1b4a395c"
+
+[node name="Main" type="Node3D" unique_id=990857363]
+script = ExtResource("1_surk7")
+viewer_path = null
+metadata/_yhde_id = "e011d397-4ce0-5d5e-a9b3-38e4c61ec0e4"
+
+[node name="TerrainManager" type="Node3D" parent="." unique_id=640518046]
+script = ExtResource("1_3iduy")
+metadata/_yhde_id = "a6391830-cd08-410f-8819-5ab7a010feec"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1409150292]
+environment = SubResource("Environment_h45xw")
+metadata/_yhde_id = "24741145-aac4-4579-bf17-9410be484f63"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=945929194]
+transform = Transform3D(0.7071067, 0.26488686, -0.65561795, 0, 0.92718387, 0.37460655, 0.7071067, -0.26488686, 0.65561795, 42, 30, 42)
+light_energy = 0.385
+shadow_enabled = true
+metadata/_yhde_id = "4cf4c4f2-62e7-479f-b193-06c7408dd36e"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1855858239]
+transform = Transform3D(0.70710677, -0.26488686, 0.6556179, 0, 0.92718387, 0.37460652, -0.70710677, -0.26488686, 0.6556179, 42, 30, 42)
+script = ExtResource("2_yd2fl")
+metadata/_yhde_id = "fb150497-5b3c-4ec1-a777-de3700127247"
