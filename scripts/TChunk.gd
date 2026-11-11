@@ -18,7 +18,6 @@ static func generate_chunk_data(
 	var vertex_cache := PackedVector3Array()
 	vertex_cache.resize(sample_size * sample_size)
 
-	# Generate terrain vertices.
 	for z in range(sample_size):
 		for x in range(sample_size):
 
@@ -45,13 +44,11 @@ static func generate_chunk_data(
 				base_z + jitter.y
 			)
 
-	# Prepare mesh arrays.
 	var vertices := PackedVector3Array()
 	var normals := PackedVector3Array()
 	var colors := PackedColorArray()
 	var indices := PackedInt32Array()
 
-	# Generate triangles from the vertex cache.
 	for z in range(GRID_CELLS):
 		for x in range(GRID_CELLS):
 
@@ -71,7 +68,6 @@ static func generate_chunk_data(
 				x + 1 + (z + 1) * sample_size
 			]
 
-			# Alternate diagonals to reduce visible grid patterns.
 			if (x + z) % 2 == 0:
 
 				_append_triangle_data(

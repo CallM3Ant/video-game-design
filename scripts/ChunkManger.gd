@@ -7,8 +7,7 @@ const ChunkScript = preload("res://scripts/TChunk.gd")
 const CHUNK_SIZE := 64
 
 @export var viewer_path: NodePath
-@export_range(2, 60) var render_radius: int = 20
-
+@export_range(2, 60) var render_radius: int = 4
 
 
 @export_range(30.0, 360.0) var forward_cone_angle: float = 180

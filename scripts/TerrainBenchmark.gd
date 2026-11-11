@@ -3,6 +3,7 @@ extends Node
 
 const TERRAIN_GEN_SCRIPT = preload("res://scripts/TerrainGen.gd")
 
+
 const WORLD_SEED: int = 12345
 
 const CHUNK_SIZE: int = 64
