@@ -16,6 +16,8 @@ var jitter_noise: FastNoiseLite
 var rolling_noise: FastNoiseLite
 var large_hill_noise: FastNoiseLite
 
+
+
 func _init(p_seed: int = 12345) -> void:
 	world_seed = p_seed
 	continental_noise = make_noise(0, 0.0008, 3, 0.50)
@@ -30,7 +32,7 @@ func _init(p_seed: int = 12345) -> void:
 	color_noise = make_noise(800, 0.018, 2, 0.40)
 	jitter_noise = make_noise(900, 0.035, 2, 0.40)
 	rolling_noise = make_noise(1000, 0.006, 4, 0.5)
-
+	
 	large_hill_noise = make_noise(1100, 0.0025, 3, 0.5)
 	
 

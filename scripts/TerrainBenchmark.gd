@@ -17,7 +17,7 @@ const ACCEPTABLE_DIFFERENCE: float = 0.05
 const DEBUG_BENCHMARK: bool = true
 
 # Increase this whenever the benchmark's generation code changes.
-const BENCHMARK_VERSION: int = 3
+const BENCHMARK_VERSION: int = 5
 
 # Rebenchmark after this many launches.
 const REBENCHMARK_EVERY: int = 5
@@ -30,7 +30,6 @@ var detected_logical_threads: int = 1
 var is_benchmarking: bool = false
 var benchmark_progress: float = 0.0
 
-var _benchmark_finished := false
 var _origins: Array[Vector2i] = []
 
 

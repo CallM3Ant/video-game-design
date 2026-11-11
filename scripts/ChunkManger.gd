@@ -4,14 +4,15 @@ extends Node3D
 const TerrainGenScript = preload("res://scripts/TerrainGen.gd")
 const ChunkScript = preload("res://scripts/TChunk.gd")
 
-const CHUNK_SIZE := 128
+const CHUNK_SIZE := 64
 
 @export var viewer_path: NodePath
-@export_range(1, 60) var render_radius: int = 5
+@export_range(2, 60) var render_radius: int = 20
 
 
-@export_range(30.0, 360.0) var forward_cone_angle: float = 180.0
-@export_range(0, 5) var nearby_keep_radius: int = 2
+
+@export_range(30.0, 360.0) var forward_cone_angle: float = 180
+@export_range(0, 5) var nearby_keep_radius: int = 1
 @export var world_environment_path: NodePath
 
 @export_range(0.0, 0.95, 0.01) var fog_start_ratio := 0.65
@@ -19,6 +20,7 @@ const CHUNK_SIZE := 128
 
 var fog_environment: Environment
 @export var world_seed: int = 12345
+var rock_material: StandardMaterial3D
 
 
 var camera: Camera3D
@@ -84,6 +86,11 @@ func _ready() -> void:
 	terrain_material.roughness = 1.0
 	terrain_material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	terrain_material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
+	
+	rock_material = StandardMaterial3D.new()
+	rock_material.albedo_color = Color(0.48, 0.36, 0.29)
+	rock_material.roughness = 1.0
+	rock_material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 
 	create_stats_display()
 	update_loaded_chunks(true)
@@ -91,7 +98,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	update_loaded_chunks(false)
-	update_directional_visibility()
+	update_directional_visibility(true)
 
 	_collect_completed_jobs()
 	_integrate_completed_chunks()
@@ -131,14 +138,14 @@ func _run_chunk_worker(
 	p_output["data"] = ChunkScript.generate_chunk_data(
 		p_origin,
 		p_size,
-		p_generator
+		p_generator,
 	)
 func update_fog_distance() -> void:
 
 	if fog_environment == null:
 		return
 
-	var max_distance := float(CHUNK_SIZE * render_radius)
+	var max_distance := float(CHUNK_SIZE * get_visible_radius())
 
 	fog_environment.fog_depth_begin = (
 		max_distance * fog_start_ratio
@@ -154,6 +161,8 @@ func get_preload_radius() -> int:
 
 func get_unload_radius() -> int:
 	return render_radius + 4
+func get_visible_radius() -> int:
+	return render_radius
 
 
 func update_loaded_chunks(force_update: bool) -> void:
@@ -192,10 +201,8 @@ func update_loaded_chunks(force_update: bool) -> void:
 			cached_chunks.erase(coord)
 
 	for coord in chunks.keys():
-		chunks[coord].set_chunk_active(
-			visible_chunks.has(coord)
-		)
-
+		var chunk: Variant = chunks[coord]
+		chunk.set_chunk_active(visible_chunks.has(coord))
 
 	var chunks_to_cache: Array[Vector2i] = []
 
@@ -287,10 +294,10 @@ func update_loaded_chunks(force_update: bool) -> void:
 
 
 
-func update_directional_visibility() -> void:
+func update_directional_visibility(force_update: bool = false) -> void:
 	var current_transform := camera.global_transform
 
-	if has_visibility_transform:
+	if not force_update and has_visibility_transform:
 		if current_transform == last_visibility_transform:
 			return
 
@@ -313,7 +320,7 @@ func update_directional_visibility() -> void:
 			absi(offset.y)
 		)
 
-		if distance > render_radius:
+		if distance > get_visible_radius():
 			continue
 
 		if distance <= nearby_keep_radius:
@@ -328,7 +335,9 @@ func update_directional_visibility() -> void:
 			visible_chunks[coord] = true
 
 	for coord in chunks.keys():
-		chunks[coord].set_chunk_active(visible_chunks.has(coord))
+		var chunk: Variant = chunks[coord]
+		chunk.set_chunk_active(visible_chunks.has(coord))
+
 func is_chunk_in_forward_cone(
 	coord: Vector2i,
 	camera_position: Vector3,
@@ -349,7 +358,7 @@ func is_chunk_in_forward_cone(
 	if distance < 0.001:
 		return true
 
-	var max_distance := float(render_radius * CHUNK_SIZE)
+	var max_distance := float(get_visible_radius() * CHUNK_SIZE)
 
 	if distance > max_distance:
 		return false
@@ -506,7 +515,8 @@ func _integrate_completed_chunks() -> void:
 			result["origin"],
 			CHUNK_SIZE,
 			result["data"],
-			terrain_material
+			terrain_material,
+			rock_material
 		)
 
 		chunks[coord] = chunk
@@ -583,7 +593,7 @@ func update_stats_display() -> void:
 
 	stats_label.text = (
 		"FPS: %d\n" +
-		"Render Radius: %d\n" +
+		"Render Distance: %d rings\n" +
 		"Preload Radius: %d\n" +
 		"Unload Radius: %d\n" +
 		"Worker Slots: %d\n" +
