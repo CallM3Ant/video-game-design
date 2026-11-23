@@ -1,3 +1,17 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/addons/backstitch/
+/.godot_editor/
+.backstitch_version
+/.backstitch/
+backstitch.cfg
+
+# Native terrain build intermediates
+/build/*
+!/build/.gdignore
+/.sconsign.dblite
+/bin/src/
+/bin/*.exp
+/bin/*.lib
+/bin/*~*.TMP

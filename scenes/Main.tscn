@@ -1,312 +1,34 @@
 [gd_scene format=3 uid="uid://btvhkgtou5tnt"]
 
-[ext_resource type="Script" uid="uid://4u4qdn8tg5jj" path="res://scripts/Test.gd" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://4u4qdn8tg5jj" path="res://scripts/Main.gd" id="1_rvslj"]
 [ext_resource type="PackedScene" uid="uid://b6j62lqy2nche" path="res://scenes/Terrain.tscn" id="2_0bbpv"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_qnwvq"]
-metadata/_yhde_id = "f3d159c6-39a4-47bd-a06f-057418bb37bf"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elqb8"]
-albedo_color = Color(0.79607844, 0.7529412, 0.70980394, 1)
-metallic = 0.81
-roughness = 0.6
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
-refraction_enabled = true
-refraction_scale = 1.0
-metadata/_yhde_id = "30dff7c2-2730-4e8a-8a73-67b437e318b4"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
-albedo_color = Color(1, 0.14901961, 1, 1)
-metadata/_yhde_id = "a18faa8d-1fdf-45a7-926d-f0aee73237fb"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbpv"]
-albedo_color = Color(0.5058824, 0.22352941, 0.18039216, 1)
-metadata/_yhde_id = "b0675ab7-edf9-4c23-95ba-860e3e9813aa"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rarhs"]
-albedo_color = Color(0.5058824, 0.22352941, 0.18039216, 1)
-metadata/_yhde_id = "a9c21f8d-db00-4976-88a2-d597ef072220"
+[ext_resource type="Script" uid="uid://djhf2joso4ofc" path="res://scripts/silly.gd" id="4_vcsgt"]
 
 [node name="Main" type="Node3D" unique_id=1786913385]
 script = ExtResource("1_rvslj")
 world_scene = ExtResource("2_0bbpv")
 metadata/_yhde_id = "bd82214f-5679-59f7-8ce6-c9262958af7f"
 
-[node name="Otherstuff" type="Node3D" parent="." unique_id=135858653]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1778111223]
+transform = Transform3D(0.7071068, -0.26488686, 0.655618, 0, 0.92718387, 0.3746066, -0.7071068, -0.26488686, 0.655618, -43.14112, 85.75547, 67.13891)
+fov = 60.0
+near = 0.01
+far = 3000.0
+script = ExtResource("4_vcsgt")
+metadata/_yhde_id = "67e5e5f6-1634-43eb-99c2-e068d252e359"
 
-[node name="Node3D2" type="Node3D" parent="Otherstuff" unique_id=847763286]
-metadata/_yhde_id = "a2069591-c1fa-41f0-9d38-60dbc25f6c6a"
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Otherstuff/Node3D2" unique_id=1403204166]
-metadata/_yhde_id = "55e21378-9ca4-427a-a7d5-55b3580768aa"
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=1861119641]
-transform = Transform3D(0.9774045, 0, 0, 0, 0.9774049, 0, 0, 0, 0.9774043, -200, 0, -50.593)
-use_collision = true
-size = Vector3(70, 0.2, 70)
-metadata/_yhde_id = "1cdd1d73-898f-420c-a5ec-fe8c2be9c489"
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=830077817]
-transform = Transform3D(0.9774045, 0, 0, 0, 0.9774049, 0, 0, 0, 0.97740436, -200, 1.397799, -50.593)
-use_collision = true
-size = Vector3(58, 0.934, 58)
-metadata/_yhde_id = "09c3c422-18d4-4ed0-bbe3-1b767cfecf78"
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=1907567015]
-transform = Transform3D(0.97740436, 0, 0, 0, 0.9774049, 0, 0, 0, 0.97740424, -200, 0.45880222, -50.592995)
-use_collision = true
-size = Vector3(60, 0.93359375, 60)
-metadata/_yhde_id = "a6a321ba-6751-4d8e-b94d-57d992239f33"
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=824681455]
-transform = Transform3D(0.97740436, 0, 0, 0, 0.9774049, 0, 0, 0, 0.97740424, -200.0036, 14.330427, -50.52971)
-size = Vector3(45, 23.84615, 45)
-metadata/_yhde_id = "fa52fdc9-7397-45d5-b5f2-eaa881b7c2c7"
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=854759795]
-transform = Transform3D(0.9774045, 0, 0, 0, 0.9774049, 0, 0, 0, 0.97740436, -199.1089, 11.013638, -69.64844)
-operation = 2
-size = Vector3(12, 14.5, 8)
-metadata/_yhde_id = "30925cdc-4565-484e-a84d-874c2c071db9"
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=1220731910]
-transform = Transform3D(0.9774045, 0, 0, 0, 0.9774049, 0, 0, 0, 0.9774043, -200, 13.953459, -50.593)
-operation = 2
-size = Vector3(43, 20.846, 43)
-metadata/_yhde_id = "3ffa6d7d-7e2f-4a04-9729-5d1f8f97b957"
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Otherstuff/Node3D2/CSGCombiner3D" unique_id=770265822]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.86847, 27.40265, -56.80145)
-mesh = SubResource("PrismMesh_qnwvq")
-metadata/_yhde_id = "1f8c789d-aff7-4ad5-a4c4-dca7f1274704"
-
-[node name="Node3D" type="Node3D" parent="Otherstuff" unique_id=1321495567]
-metadata/_yhde_id = "8021f746-5bbb-4410-8e5d-6c073325df9b"
-
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Otherstuff" unique_id=754066308]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5126977, 1.3077648, 0)
-use_collision = true
-metadata/_yhde_id = "d3c2ad8c-6937-4757-aaeb-296c20777587"
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D2" unique_id=953194155]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85458136, -0.21062422, -0.6310978)
-operation = 2
-size = Vector3(2.7910156, 1, 1)
-metadata/_yhde_id = "032f8d1c-f09d-46e9-84a1-329063b9eb18"
-
-[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="Otherstuff" unique_id=499106628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5126977, 1.3077648, 0)
-material_override = SubResource("StandardMaterial3D_elqb8")
-use_collision = true
-metadata/_yhde_id = "d5fdd60c-1f3c-4ea6-a46e-badb1b012763"
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=449931016]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.570467, -0.64885664, 486.74048)
-size = Vector3(23.641113, 0.123535156, 13.817383)
-metadata/_yhde_id = "b26e3a08-888a-4857-845f-f8b79ea9fa0f"
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1317319604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.810034, 2.6942742, 479.98245)
-material_override = SubResource("StandardMaterial3D_rvslj")
-size = Vector3(23.640625, 6.8623657, 0.1940918)
-metadata/_yhde_id = "b2fe5375-8c00-474e-9380-b1277752ace7"
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=844318932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4980369, 0.9505236, 480.2502)
-operation = 2
-size = Vector3(2.3878174, 3.3222961, 0.9743042)
-metadata/_yhde_id = "39a8829e-6133-49fe-85a2-5525aa48eae3"
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1391515068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.751862, 0.9505236, 480.09415)
-operation = 2
-size = Vector3(2.3878174, 3.3222961, 0.6621704)
-metadata/_yhde_id = "1e685d78-da7e-4c50-92f6-45144006b4d6"
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1960395742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15325, 0.9505236, 480.05325)
-operation = 2
-size = Vector3(2.3878174, 3.3222961, 0.5803833)
-metadata/_yhde_id = "5e46a775-3f84-4d1f-b68a-a9fd93a0062a"
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=625783620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.162048, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "245918d5-81c2-4f67-88b8-4a7b19ef6898"
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1924817720]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.096718, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "13cb239d-07b7-4440-8af8-659826cbaab7"
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=594973930]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.162048, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "9a30b359-2d41-4229-9fc6-7960161c52d4"
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=975955159]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.096718, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "295e1db7-35ec-4f7e-8b57-ae2bf8612744"
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1343598097]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.721599, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "f5e4b023-c075-4b43-b6f9-15bd0ceede85"
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1250974247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6562686, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "a05afaa4-e131-45d0-be0b-092e9eca3b8d"
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1663334733]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.721599, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "8bcfa8ce-e9aa-4df0-9ea6-d54fe6f15467"
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1984485764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6562686, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "54b510e8-9f8f-4e7a-b65e-3d66f75cb021"
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1678686829]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2784009, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "26802ad6-a4c5-4c74-a969-8792b909a5d5"
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=237381974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3437314, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "49b4cd4b-8d26-481f-b1e2-3550c9028ba6"
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1469480307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2784009, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "8ba7ec5e-9b48-4478-a4de-3cc14a2d3dbc"
-
-[node name="CSGBox3D19" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1049149723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3437314, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "74a347e9-ee47-41e1-a0dc-76c9239bd3b0"
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=599194028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2784009, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "ed0ad4e7-8e62-46ae-9c67-2b5952807410"
-
-[node name="CSGBox3D21" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1294155486]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3437314, 3.9864619, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "d65912b3-a48b-498a-b165-393297f80d1e"
-
-[node name="CSGBox3D22" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=313427292]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2784009, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "2438519e-c3b8-4f7e-88b1-9666f545476c"
-
-[node name="CSGBox3D23" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D4" unique_id=1723252152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3437314, 2.7992356, 479.94098)
-operation = 2
-size = Vector3(0.87039185, 0.8883705, 0.35583496)
-metadata/_yhde_id = "f98c4f87-071c-4093-91a6-8345256f243f"
-
-[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="Otherstuff" unique_id=1127926995]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1535425, 1.3077648, 0)
-use_collision = true
-metadata/_yhde_id = "5e0e7274-ccc5-40fb-8a77-d5aa3e7a13f8"
-
-[node name="Node" type="Node" parent="Otherstuff/CSGCombiner3D3" unique_id=52853029]
-metadata/_yhde_id = "9996e95a-42ad-4649-8a96-0ab15607fe85"
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=1533949086]
-transform = Transform3D(3.144531, 0, 0, 0, 3.7250538, 0, 0, 0, 2.0076685, -8.454003, 7.642153, 27.817392)
-material_override = SubResource("StandardMaterial3D_0bbpv")
-size = Vector3(29.427124, 6.599121, 35.61316)
-metadata/_yhde_id = "13b33342-7c6f-409b-92a8-721a101420ac"
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=61446912]
-transform = Transform3D(9.888075, 0, 0, 0, 13.876026, 0, 0, 0, 4.0307326, -30.94439, 7.3628044, 13.920229)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(3.4576416, 1.5443115, 11.950195)
-metadata/_yhde_id = "8bdced5f-483b-492b-8c4c-a2154339e9ba"
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=381193835]
-transform = Transform3D(97.774025, 0, 0, 0, 192.54408, 0, 0, 0, 16.246778, 0.113639355, 3.9008496, -13.114555)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(0.101451874, 0.07444763, 0.9800415)
-metadata/_yhde_id = "679e3848-bb97-4adc-94df-9a7b684bf886"
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=882560457]
-transform = Transform3D(3.144531, 0, 0, 0, 3.7250538, 0, 0, 0, 2.0076685, 11.782323, 7.0856915, 25.919733)
-material_override = SubResource("StandardMaterial3D_0bbpv")
-operation = 2
-size = Vector3(15.114452, 5.437439, 32.26956)
-metadata/_yhde_id = "925ab4e1-2c07-4a62-b600-52635993dcc5"
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=158696600]
-transform = Transform3D(97.774025, 0, 0, 0, 192.54408, 0, 0, 0, 16.246778, 27.90232, 9.460137, -17.401844)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(0.09845543, 0.028671265, 1.5847168)
-metadata/_yhde_id = "dd20ef50-b5cf-4eba-a581-20c04719625e"
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=314322847]
-transform = Transform3D(0.9774045, 0, 0, 0, 0.9774049, 0, 0, 0, 0.9774043, -195.84645, 0.7100308, -50.593)
-use_collision = true
-size = Vector3(50, 1.5977541, 50)
-metadata/_yhde_id = "593b9301-9d0a-43ec-af94-d6de130df444"
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Otherstuff/CSGCombiner3D3" unique_id=1581460797]
-metadata/_yhde_id = "2afd463e-1981-4cd7-a231-6b0a55cff80d"
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=147907373]
-transform = Transform3D(97.774025, 0, 0, 0, 192.54408, 0, 0, 0, 16.246778, 16.407555, 9.460137, -16.732498)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(0.09845543, 0.028671265, 1.5023193)
-metadata/_yhde_id = "7c4d4abd-181a-4dec-aa65-02ee86260489"
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=62899754]
-transform = Transform3D(97.774025, 0, 0, 0, 192.54408, 0, 0, 0, 16.246778, 16.407555, 3.1968358, -13.821088)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(0.09845543, 0.028671265, 1.1439209)
-metadata/_yhde_id = "e20492ff-8bcb-4ab8-a665-e2ee2752a4b6"
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=640491382]
-transform = Transform3D(97.774025, 0, 0, 0, 192.54408, 0, 0, 0, 16.246778, 27.90232, 3.2434304, -12.962341)
-material_override = SubResource("StandardMaterial3D_rarhs")
-operation = 2
-size = Vector3(0.09845543, 0.028671265, 1.038208)
-metadata/_yhde_id = "03da2f57-4ffc-4c47-a691-3ca007f2e78d"
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=399282435]
-transform = Transform3D(3.855512, 0, 0, 0, 3.7250538, 0, 0, 0, 2.4908533, -8.454003, 29.008644, 27.817392)
-material_override = SubResource("StandardMaterial3D_0bbpv")
-size = Vector3(29.427124, 4.98999, 35.61316)
-metadata/_yhde_id = "18b09bb2-2f9e-4cd8-bd50-10a3e58f32d2"
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="Otherstuff/CSGCombiner3D3" unique_id=444595692]
-transform = Transform3D(3.144531, 0, 0, 0, 3.7250538, 0, 0, 0, 2.0076685, -8.454003, 39.00874, 27.817392)
-material_override = SubResource("StandardMaterial3D_0bbpv")
-size = Vector3(29.427124, 6.599121, 35.61316)
-metadata/_yhde_id = "818017de-ef2d-440c-b8cc-b6463860c5a6"
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=757831589]
+transform = Transform3D(0.81915194, -0.4055798, 0.40557978, 0, 0.70710677, 0.7071067, -0.5735764, -0.579228, 0.5792279, 42, 30, 42)
+light_color = Color(0.61708784, 0.67159516, 0.78934014, 1)
+light_energy = 0.616
+light_angular_distance = 0.2
+shadow_enabled = true
+shadow_normal_bias = 4.02
+shadow_opacity = 0.39
+shadow_blur = 2.818
+directional_shadow_split_2 = 0.25
+directional_shadow_split_3 = 0.55
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.82
+directional_shadow_max_distance = 1000.0
+metadata/_yhde_id = "ce9fdbef-e092-4f0d-ac7b-64a1c3c528cd"
